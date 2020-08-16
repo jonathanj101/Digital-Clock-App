@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* navbar */
+.navbar-container {
+  margin: 5% 0;
+  padding: 5% 0;
+  text-align: center;
+  border: 2px solid green;
+}
+
+/* main container and clock */
+
+#main-container {
+  border: 2px solid #da1414;
+  width: 25%;
+  height: 25%;
+  text-align: center;
+  margin: 15% 40%;
+}
+
+#clock-container {
+  border: 2px solid green;
+  width: 100%;
+  margin: 35% 0;
+}
+
+/* footer */
+
+footer {
+  border: 2px solid red;
+}

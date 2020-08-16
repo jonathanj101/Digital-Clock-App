@@ -1,2 +1,5 @@
 # Digital-Clock-App
- Digital-Clock
+
+Digital-Clock
+
+SoftWare Development MasterMind Project #1
