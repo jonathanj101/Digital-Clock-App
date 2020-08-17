@@ -11,10 +11,17 @@ body {
   border: 2px solid green;
 }
 
+a {
+  text-decoration: none;
+}
+
+.nav-items {
+  margin: 0 5%;
+}
+
 /* main container and clock */
 
 #main-container {
-  border: 2px solid #da1414;
   width: 25%;
   height: 25%;
   text-align: center;
@@ -22,9 +29,25 @@ body {
 }
 
 #clock-container {
-  border: 2px solid green;
+  display: flex;
   width: 100%;
-  margin: 35% 0;
+}
+
+#right-side__container {
+  height: 10%;
+  width: 25%;
+  margin: auto 0;
+}
+
+#clock {
+  font-size: 3.5rem;
+}
+
+#clock-seconds,
+#day_night {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
 }
 
 /* footer */
