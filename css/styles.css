@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* navbar */
+.navbar-container {
+  margin: 0 0 5% 0;
+  padding: 2% 0;
+  text-align: center;
+
+  width: 100%;
+}
+
+.nav-items {
+  font-size: 1.75rem;
+  margin: 0 5%;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(255, 214, 51);
+}
+
+a:hover {
+  color: white;
+  border: 1px solid rgb(255, 214, 51);
+  border-radius: 10%;
+  box-shadow: 1px 1px 10px rgb(255, 214, 51);
+}
+
+/* main container, clock container, right side container */
+
+#main-container {
+  width: 25%;
+  height: 25%;
+  text-align: center;
+  margin: 15% 40%;
+}
+
+#clock-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#right-side__container {
+  height: 10%;
+  width: 25%;
+  margin: auto 0;
+}
+
+#clock {
+  font-size: 3.5rem;
+  color: rgb(255, 209, 26);
+}
+
+#clock-seconds,
+#day_night {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: rgb(255, 214, 51);
+}
+
+/* button */
+
+button {
+  background: transparent;
+  border-radius: 10%;
+  outline: 0;
+  cursor: pointer;
+}
+
+#military_time {
+  font-size: 1.25rem;
+  color: rgb(255, 214, 51);
+}
+
+#military_time:hover {
+  color: white;
+  box-shadow: 1px 1px 10px rgb(255, 214, 51);
+}
+
+/* footer */
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+#contact,
+#copyrights {
+  font-size: 1rem;
+  color: rgb(255, 214, 51);
+}
