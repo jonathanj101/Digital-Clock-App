@@ -28,15 +28,16 @@ a:hover {
   border: 1px solid rgb(255, 214, 51);
   border-radius: 10%;
   box-shadow: 1px 1px 10px rgb(255, 214, 51);
+  cursor: pointer;
 }
 
 /* main container, clock container, right side container */
 
 #main-container {
-  width: 25%;
+  width: 30%;
   height: 25%;
   text-align: center;
-  margin: 15% 40%;
+  margin: 15% auto;
 }
 
 #clock-container {
@@ -47,6 +48,7 @@ a:hover {
 
 #right-side__container {
   height: 10%;
+
   width: 25%;
   margin: auto 0;
 }
@@ -64,25 +66,15 @@ a:hover {
   color: rgb(255, 214, 51);
 }
 
-/* button */
+/* to Dates */
 
-button {
-  background: transparent;
-  border-radius: 10%;
-  outline: 0;
-  cursor: pointer;
+.date-container {
+  width: 100%;
 }
-
-#military_time {
-  font-size: 1.25rem;
+#date {
+  font-size: 2rem;
   color: rgb(255, 214, 51);
 }
-
-#military_time:hover {
-  color: white;
-  box-shadow: 1px 1px 10px rgb(255, 214, 51);
-}
-
 /* footer */
 
 footer {
