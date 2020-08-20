@@ -30,7 +30,8 @@ a:hover {
   box-shadow: 1px 1px 10px rgb(255, 214, 51);
   cursor: pointer;
 }
-
+#military_time {
+}
 /* main container, clock container, right side container */
 
 #main-container {

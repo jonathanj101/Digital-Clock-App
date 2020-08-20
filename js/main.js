@@ -1,7 +1,10 @@
+
+
 function showTime() {
     let date = new Date();
 
     // DOM selecting nodes
+
     let clock = document.querySelector("#clock");
     let seconds = document.querySelector("#clock-seconds");
     let time = document.querySelector("#day_night");
@@ -41,8 +44,6 @@ function showTime() {
     time.textContent = day_Night;
 
     dateP.textContent = toDates.toUpperCase()
-
-    setInterval(showTime, 100)
 }
 
 function militaryTime() {
@@ -58,12 +59,30 @@ function militaryTime() {
 
 
     militaryBtn.addEventListener('click', function () {
-        clock.textContent = h + " : " + m + " : " + s
+        if (militaryBtn) {
+            militaryBtn.textContent = "STANDARD TIME"
+            clock.textContent = h + " : " + m + " : " + s
+        } else {
+            let time = document.querySelector("#day_night");
+
+            let dateP = document.querySelector("#date")
+
+            let dateTime = h + " : " + m;
+
+            let day_Night = h < 12 ? "PM" : "AM";
+
+            let h = date.getHours() % 12 || 12
+            seconds.textContent = s;
+
+            time.textContent = day_Night;
+
+
+            clock.textContent = dateTime;
+        }
     })
 }
 
-setTimeout(() => {
-    showTime()
-    militaryTime()
-}, 100);
+window.onload = setInterval(showTime, 1000)
+window.onload = setInterval(militaryTime, 1000)
+
 
