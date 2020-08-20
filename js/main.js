@@ -82,7 +82,9 @@ function militaryTime() {
     })
 }
 
-window.onload = setInterval(showTime, 1000)
-window.onload = setInterval(militaryTime, 1000)
+setInterval(() => {
+    showTime()
+    militaryTime()
+}, 100)
 
 
