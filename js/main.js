@@ -1,6 +1,6 @@
+let isMilitaryTime = true
 
-
-function showTime() {
+function standardTime() {
     let date = new Date();
 
     // DOM selecting nodes
@@ -9,6 +9,7 @@ function showTime() {
     let seconds = document.querySelector("#clock-seconds");
     let time = document.querySelector("#day_night");
     let dateP = document.querySelector("#date")
+    let militaryBtn = document.querySelector("#military_time")
 
     // getting numerical day
     let dayNum = date.getDate()
@@ -44,47 +45,55 @@ function showTime() {
     time.textContent = day_Night;
 
     dateP.textContent = toDates.toUpperCase()
+
+    militaryBtn.textContent = "standard time".toUpperCase()
 }
 
 function militaryTime() {
     let date = new Date()
 
     let clock = document.querySelector("#clock");
-
     let militaryBtn = document.querySelector("#military_time")
+    let rightSideContainer = document.querySelector("#right-side__container")
+    let seconds = document.querySelector("#clock-seconds");
+    let time = document.querySelector("#day_night");
+
 
     let h = date.getHours()
     let m = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
     let s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
 
 
-    militaryBtn.addEventListener('click', function () {
-        if (militaryBtn) {
-            militaryBtn.textContent = "STANDARD TIME"
-            clock.textContent = h + " : " + m + " : " + s
-        } else {
-            let time = document.querySelector("#day_night");
+    militaryBtn.textContent = "military time".toUpperCase()
 
-            let dateP = document.querySelector("#date")
-
-            let dateTime = h + " : " + m;
-
-            let day_Night = h < 12 ? "PM" : "AM";
-
-            let h = date.getHours() % 12 || 12
-            seconds.textContent = s;
-
-            time.textContent = day_Night;
+    seconds.style.display = 'none'
+    time.style.display = 'none'
 
 
-            clock.textContent = dateTime;
-        }
-    })
+    clock.textContent = h + " : " + m + " : " + s
+
+
+
 }
 
+
+let militaryBtn = document.querySelector("#military_time")
+militaryBtn.addEventListener('click', function () {
+    if (isMilitaryTime === false) {
+        let seconds = document.querySelector("#clock-seconds");
+        let time = document.querySelector("#day_night");
+        seconds.style.display = 'block'
+        time.style.display = 'block'
+        isMilitaryTime = true
+    } else {
+        isMilitaryTime = false
+    }
+})
+
 setInterval(() => {
-    showTime()
-    militaryTime()
+    if (isMilitaryTime === true) {
+        standardTime()
+    } else {
+        militaryTime()
+    }
 }, 100)
-
-
