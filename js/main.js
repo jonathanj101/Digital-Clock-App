@@ -46,7 +46,7 @@ function standardTime() {
 
     dateP.textContent = toDates.toUpperCase()
 
-    militaryBtn.textContent = "standard time".toUpperCase()
+    militaryBtn.textContent = "military time".toUpperCase()
 }
 
 function militaryTime() {
@@ -64,7 +64,7 @@ function militaryTime() {
     let s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
 
 
-    militaryBtn.textContent = "military time".toUpperCase()
+    militaryBtn.textContent = "standard time".toUpperCase()
 
     seconds.style.display = 'none'
     time.style.display = 'none'
@@ -80,11 +80,11 @@ function militaryTime() {
 let militaryBtn = document.querySelector("#military_time")
 militaryBtn.addEventListener('click', function () {
     if (isMilitaryTime === false) {
+        isMilitaryTime = true
         let seconds = document.querySelector("#clock-seconds");
         let time = document.querySelector("#day_night");
         seconds.style.display = 'block'
         time.style.display = 'block'
-        isMilitaryTime = true
     } else {
         isMilitaryTime = false
     }
