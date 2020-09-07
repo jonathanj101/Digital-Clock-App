@@ -1,99 +1,52 @@
-let isMilitaryTime = true
-
-function standardTime() {
-    let date = new Date();
-
-    // DOM selecting nodes
-
-    let clock = document.querySelector("#clock");
-    let seconds = document.querySelector("#clock-seconds");
-    let time = document.querySelector("#day_night");
-    let dateP = document.querySelector("#date")
-    let militaryBtn = document.querySelector("#military_time")
-
-    // getting numerical day
-    let dayNum = date.getDate()
-
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-
-    // displays date as dd, mm (as name) numerical day
-    let toDates = days[date.getDay()] + ' - ' + months[date.getMonth()] + " " + dayNum
-
-
-    // hh mm ss
-
-    let h = date.getHours() % 12 || 12;
-    let m = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-    let s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-
-
-    // displaying time as hh : mm
-    let dateTime = h + " : " + m;
-
-    // display pm if its less than 12th hour  else display am
-    let day_Night = h < 12 ? "PM" : "AM";
-
-
-    // DOM changing elements content
-    clock.textContent = dateTime;
-
-    seconds.textContent = s;
-
-    time.textContent = day_Night;
-
-    dateP.textContent = toDates.toUpperCase()
-
-    militaryBtn.textContent = "military time".toUpperCase()
-}
-
-function militaryTime() {
-    let date = new Date()
-
-    let clock = document.querySelector("#clock");
-    let militaryBtn = document.querySelector("#military_time")
-    let rightSideContainer = document.querySelector("#right-side__container")
-    let seconds = document.querySelector("#clock-seconds");
-    let time = document.querySelector("#day_night");
-
-
-    let h = date.getHours()
-    let m = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-    let s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-
-
-    militaryBtn.textContent = "standard time".toUpperCase()
-
-    seconds.style.display = 'none'
-    time.style.display = 'none'
-
-
-    clock.textContent = h + " : " + m + " : " + s
-
-
-
-}
-
-
+let isMilitaryTime = false
+let intervalID;
+document.addEventListener("DOMContentLoaded", function () {
+    displayTime()
+    setInterval(displayTime, 1000)
+})
 let militaryBtn = document.querySelector("#military_time")
 militaryBtn.addEventListener('click', function () {
-    if (isMilitaryTime === false) {
-        isMilitaryTime = true
-        let seconds = document.querySelector("#clock-seconds");
-        let time = document.querySelector("#day_night");
-        seconds.style.display = 'block'
-        time.style.display = 'block'
-    } else {
-        isMilitaryTime = false
-    }
+    isMilitaryTime = !isMilitaryTime
+    clearInterval(intervalID)
+    displayTime()
+    intervalID = setInterval(displayTime, 1000)
 })
-
-setInterval(() => {
-    if (isMilitaryTime === true) {
-        standardTime()
+function displayTime() {
+    const date = new Date();
+    const h = date.getHours();
+    const m = formatTime(date.getMinutes());
+    const s = formatTime(date.getSeconds());
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const toDates = days[date.getDay()] + ' - ' + months[date.getMonth()] + " " + date.getDate()
+    const clock = document.querySelector("#clock");
+    const seconds = document.querySelector("#clock-seconds");
+    const time = document.querySelector("#day_night");
+    const dateP = document.querySelector("#date")
+    const militaryBtn = document.querySelector("#military_time")
+    dateP.textContent = toDates.toUpperCase()
+    if (!isMilitaryTime) {
+        militaryBtn.textContent = "military time".toUpperCase()
+        const dateTime = displayStandardTime(h) + " : " + m;
+        const day_Night = amOrPm(h);
+        time.textContent = day_Night;
+        time.style.display = 'block'
+        clock.textContent = dateTime;
+        seconds.textContent = s;
+        seconds.style.display = 'block'
     } else {
-        militaryTime()
+        militaryBtn.textContent = "standard time".toUpperCase()
+        seconds.style.display = 'none'
+        clock.textContent = h + " : " + m + " : " + s
+        time.style.display = 'none'
     }
-}, 100)
+}
+function formatTime(time) {
+    return time < 10 ? "0" + time : time
+}
+function displayStandardTime(h) {
+    return parseInt(h) > 12 ? parseInt(h) - 12 : parseInt(h)
+}
+function amOrPm(h) {
+    return parseInt(h) > 12 ? "PM" : "AM"
+}  
