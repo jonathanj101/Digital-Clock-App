@@ -45,7 +45,8 @@ function formatTime(time) {
     return time < 10 ? "0" + time : time
 }
 function displayStandardTime(h) {
-    return parseInt(h) > 12 ? parseInt(h) - 12 : parseInt(h)
+    return parseInt(h) < 12 ? parseInt(h) + 12 : parseInt(h)
+
 }
 function amOrPm(h) {
     return parseInt(h) > 12 ? "PM" : "AM"
