@@ -49,5 +49,5 @@ function displayStandardTime(h) {
 
 }
 function amOrPm(h) {
-    return parseInt(h) < 12 ? "PM" : "AM"
+    return parseInt(h) > 12 ? "PM" : "AM"
 }  
