@@ -1,5 +1,18 @@
 # Digital-Clock-App
 
-Digital-Clock
+Simple and easy Digital-Clock App purely made in HTML, CSS and JavaScript
 
-SoftWare Development MasterMind Project #1
+[Want to see it?](https://jonathanj101.github.io/Digital-Clock-App/pages/main.html)
+
+![](images/preview.png)
+
+# Summary
+
+Simple Digital-Clock App, where you can see your local time or click 'Military Time' button to display Military time.
+
+# Author
+
+**Jonathan Jimenez** - Aspiring Full Stack Developer
+
+- [LinkedIn](https://www.linkedin.com/in/jonathan-jimenez101/)
+- [Codepen](https://codepen.io/jonathanj101/)
