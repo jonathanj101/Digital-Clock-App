@@ -4,7 +4,7 @@ Simple and easy Digital-Clock App purely made in HTML, CSS and JavaScript
 
 [Want to see it?](https://jonathanj101.github.io/Digital-Clock-App/pages/main.html)
 
-![](images/preview.png)
+![](/images/preview.png)
 
 # Summary
 
